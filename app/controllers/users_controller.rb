@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up"
+      flash[:notice] = "Welcome to the Mini Dealmaker #{@user.username}, you have successfully signed up"
       redirect_to questions_path
     else
       render 'new'
