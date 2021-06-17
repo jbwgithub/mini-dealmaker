@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the Mini-Dealmaker app!
 
-Things you may want to cover:
+* To visit the live production site, please click here: [Mini-Dealmaker](https://mini-dealmaker.herokuapp.com)
 
-* Ruby version
+* This application was built with the following technologies:
+  * Ruby on Rails (RoR v6)
+  * Vue (Vue.js v2)
+  * Bootstrap
+  * Bootstrap Vue
+  * Deployed with [Heroku](https://www.heroku.com/)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
