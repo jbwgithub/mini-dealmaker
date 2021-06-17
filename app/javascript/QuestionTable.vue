@@ -40,12 +40,13 @@
         </b-button>
       </template>
 
-       <template v-slot:cell(title)='row'>
-        <b-form-input v-model='row.item.title' v-on:change.native="dataChanged"/>
+       <template v-slot:cell(ask)='row'>
+        <b-form-input v-model='row.item.ask' v-on:change.native="dataChanged"/>
       </template>
 
-      <template v-slot:cell(description)='row'>
-        <b-form-input v-model='row.item.description' v-on:change.native="dataChanged"/>
+      <template v-slot:cell(answer)='row'>
+        <b-form-textarea v-model='row.item.answer' v-on:change.native="dataChanged"
+        rows="3" placeholder="Answer here"/>
       </template>
     </b-table>
   </b-container>
@@ -59,8 +60,8 @@ export default {
   data() {
     return {
       fields: [{ key: 'id', label: 'ID'},
-        { key: 'title', lable: 'Title' },
-        { key: 'description', lable: 'Description' },
+        { key: 'ask', label: 'Question' },
+        { key: 'answer', label: 'Answer' },
         { key: 'templates', label: 'Templates' },
         { key: 'actions', label: 'Actions' }],
       items: [],
@@ -88,8 +89,8 @@ export default {
 
       axios.put('/questions/' + question.id, {
         question: {
-          title: row.children[1].children[0]._value,
-          description: row.children[2].children[0]._value
+          ask: row.children[1].children[0]._value,
+          answer: row.children[2].children[0]._value
         }
       });
     },

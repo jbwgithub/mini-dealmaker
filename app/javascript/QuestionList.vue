@@ -1,7 +1,7 @@
 <template>
   <ul class='questions'>
     <li v-for="question in questions" :key="question.id" class='question-item'>
-      {{question.title}}: {{question.description}}
+      {{question.ask}}: {{question.answer}}
     </li>
   </ul>
 </template>

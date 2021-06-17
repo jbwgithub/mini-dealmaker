@@ -1,0 +1,5 @@
+class FixQuestionsColumn < ActiveRecord::Migration[6.1]
+  def change
+    rename_column :questions, :title, :question
+  end
+end

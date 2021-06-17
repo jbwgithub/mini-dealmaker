@@ -4,16 +4,16 @@
       <%= render 'layouts/errors', obj: @question %>
       <%= form_with(model: @question, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
         <div class="input-group row mb-3">
-          <%= f.label :title, class: "col-2 col-form-label text-light" %>
+          <%= f.label :ask, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Question topic" %>
+            <%= f.text_field :ask, class: "form-control shadow rounded", placeholder: "Fill in question here" %>
           </div>
         </div>
 
         <div class="input-group row mb-3">
-          <%= f.label :description, class: "col-2 col-form-label text-light" %>
+          <%= f.label :answer, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Fill in question here" %>
+            <%= f.text_area :answer, rows: 10, class: "form-control shadow rounded", placeholder: "Fill in answer here" %>
           </div>
         </div>
 

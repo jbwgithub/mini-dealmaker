@@ -18,7 +18,7 @@
           <% if @template.questions.count > 0 %>
             <% @template.questions.each do |question| %>
 
-              <%= question.description %></br>
+              <%= question.answer %></br>
             <% end %>
           <% else %>
               Substitute variable tags
