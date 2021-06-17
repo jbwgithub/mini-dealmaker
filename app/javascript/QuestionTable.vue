@@ -9,18 +9,22 @@
         {{ row.value.first }} {{ row.value.last }}
       </template>
 
-      <template #cell(actions)>
-        <b-button size="me" @click="addQuestion" class="mr-1">
-          Add to Template
-        </b-button>
-      </template>
-
       <template #cell(templates)>
         <b-form-select size="me" class="mr-1 rounded">
           <option v-for="template in templates" v-bind:key="template.id">
             {{ template.name }}
+            {{ template.id }}
           </option>
         </b-form-select>
+      </template>
+
+      <template #cell(actions)>
+        <b-button size="me" @click="addQuestion" class="mr-1 btn-success">
+          Add to Template
+        </b-button>
+        <b-button size="me" @click="deleteQuestion" class="mr-1 btn-danger">
+          Delete Question
+        </b-button>
       </template>
 
        <template v-slot:cell(title)='row'>
@@ -31,7 +35,6 @@
         <b-form-input v-model='row.item.description' v-on:change.native="dataChanged"/>
       </template>
     </b-table>
-
   </b-container>
 </template>
 
@@ -48,7 +51,11 @@ export default {
         { key: 'templates', label: 'Templates' },
         { key: 'actions', label: 'Actions' }],
       items: [],
-      templates: []
+      selected: null,
+      templates: [],
+      form: {
+        option: '',
+      }
     };
   },
   created() {
@@ -56,7 +63,12 @@ export default {
     axios.get('/questions.json').then(response => (this.items = response.data));
     axios.get('/templates.json').then(response => (this.templates = response.data));
   },
-  props: [],
+  computed: {
+    // selectedOption: function() {
+    //   const report = this.templates.find(option => option.name === this.form.option);
+    //     return report;
+    // }
+  },
   methods: {
     dataChanged(e) {
       let row = e.target.closest('tr')
@@ -71,13 +83,19 @@ export default {
     },
     addQuestion(e) {
       let row = e.target.closest('tr')
-      let question = this.items[row.rowIndex - 1]
+      // let template = this.templates[row.rowIndex - 1]
 
-      axios.put('/questions/' + question.id, {
-        question: {
-          template_id: 1
-        }
-      });
+      console.log("REACHED", this.form)
+      // axios.put('/questions/' + question.id, {
+      //   question: {
+      //     template_ids: template_ids.push()
+      //   }
+      // });
+    },
+    deleteQuestion(e) {
+      let row = e.target.closest('tr')
+      let question = this.items[row.rowIndex - 1]
+      axios.delete('/questions/' + question.id);
     }
   }
 }

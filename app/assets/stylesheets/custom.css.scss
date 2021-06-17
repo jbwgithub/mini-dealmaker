@@ -11,7 +11,7 @@
 #logo {
   float: left;
   font-size: 1.7em;
-  color: #fff;
+  color:#009B90;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
@@ -22,12 +22,12 @@
 }
 
 .jumbotron {
-  background-image: asset-url('jumbo-copy.jpg');
+  background-image: asset-url('buildings.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 425px;
-  padding-top: 75px; // Had to add in addition in order to vertical-align
+  padding-top: 75px;
 }
 
 html,
