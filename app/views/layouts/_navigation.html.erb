@@ -10,7 +10,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Articles
+            Questions
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to "View questions", questions_path, class: "dropdown-item" %></li>
@@ -27,7 +27,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to "View templates", templates_path, class: "dropdown-item" %></li>
             <% if logged_in? %>
-              <li><%= link_to "Create new template", new_question_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Create new template", new_template_path, class: "dropdown-item" %></li>
             <% end %>
           </ul>
         </li>

@@ -8,20 +8,28 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-12 mt-4">
-      <div class="card text-center shadow mb-5 bg-white rounded">
-        <div class="card-header fst-italic">
+      <div class="card border-dark text-left shadow mb-5 bg-white rounded">
+        <div class="card-header text-center fst-italic">
           The following template is a series of investor questions for <%= @template.name %>:
         </div>
         <div class="card-body">
-          <h4 class="float-left">Investor Document</h4>
-          <p>INPUT vARIABLE TAGES, USE IF TO CHECK IF TEMPLATE HAS ASSIGNED QUESTIONS YET</p>
+          <h4 class="text-center">Investor Document</h4>
+          <p class="text-left">
+            <strong>Document created on: </strong><%= @template.created_at.to_date %></br>
+            <strong>Company name: </strong><%= @template.name %>
+          </p>
+          </br>
+          <h5>Questions:</h5>
           <% if @template.questions.count > 0 %>
             <% @template.questions.each do |question| %>
-
-              <%= question.answer %></br>
+              <i>Question: </i><%= question.ask %></br>
+              <i>Answer: </i><%= question.answer %>
+              <hr class="solid">
             <% end %>
           <% else %>
-              Substitute variable tags
+            <hr class="solid">
+            <p style="color:grey"><i>Questions and answers will appear here as you assign them to this template. To create questions and assign them to templates, go to the Questions tab dropdown in the navigation bar</i></p>
+            <hr class="solid">
           <% end %>
 
         </div>

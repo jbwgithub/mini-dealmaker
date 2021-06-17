@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  resources :templates, only: [:index, :show, :destroy]
+  resources :templates, only: [:new, :create, :index, :show, :destroy] # Order matters!
   resources :template_questions, only: [:create, :new]
 end
