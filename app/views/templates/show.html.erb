@@ -10,14 +10,23 @@
     <div class="col-12 mt-4">
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header fst-italic">
-          by PErson
+          The following template is a series of investor questions for <%= @template.name %>:
         </div>
         <div class="card-body">
-          <p>This is thr template info wherr questionssould go</p>
+          <h4 class="float-left">Investor Document</h4>
+          <p>INPUT vARIABLE TAGES, USE IF TO CHECK IF TEMPLATE HAS ASSIGNED QUESTIONS YET</p>
+          <% if @template.questions.count > 0 %>
+            <% @template.questions.each do |question| %>
+
+              <%= question.description %></br>
+            <% end %>
+          <% else %>
+              Substitute variable tags
+          <% end %>
+
         </div>
         <div class="card-footer text-muted">
-          <small>Created <%= time_ago_in_words(@template.created_at) %> ago,
-          edited <%= time_ago_in_words(@template.updated_at) %> ago </small>
+          <small>This template was last edited <%= time_ago_in_words(@template.updated_at) %> ago </small>
         </div>
       </div>
     </div>
