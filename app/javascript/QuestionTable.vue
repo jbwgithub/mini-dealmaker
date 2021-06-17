@@ -15,6 +15,13 @@
         </b-button>
       </template>
 
+      <template #cell(templates)>
+        <b-form-select size="me" class="mr-1 rounded">
+          <option v-for="template in templates" v-bind:key="template.id">
+            {{ template.name }}
+          </option>
+        </b-form-select>
+      </template>
 
        <template v-slot:cell(title)='row'>
         <b-form-input v-model='row.item.title' v-on:change.native="dataChanged"/>
@@ -36,15 +43,18 @@ export default {
   data() {
     return {
       fields: [{ key: 'id', label: 'ID'},
-      { key: 'title', lable: 'Title' },
-      { key: 'description', lable: 'Description' },
-      { key: 'actions', label: 'Actions' }],
-      items: []
+        { key: 'title', lable: 'Title' },
+        { key: 'description', lable: 'Description' },
+        { key: 'templates', label: 'Templates' },
+        { key: 'actions', label: 'Actions' }],
+      items: [],
+      templates: []
     };
   },
   created() {
     setCSRFToken(axios, document)
     axios.get('/questions.json').then(response => (this.items = response.data));
+    axios.get('/templates.json').then(response => (this.templates = response.data));
   },
   props: [],
   methods: {

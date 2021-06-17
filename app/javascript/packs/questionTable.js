@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     el: '#questionTable',
     render: h => h(Table),
-  }),
-    new Vue({
-      el: '#questionList',
-      render: h => h(List),
-    });
+  })
+  // new Vue({
+  //   el: '#questionList',
+  //   render: h => h(List),
+  // });
 });
