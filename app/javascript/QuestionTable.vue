@@ -9,22 +9,12 @@
         {{ row.value.first }} {{ row.value.last }}
       </template>
 
-      <template #cell(no)>
-        <select v-model="sorting" v-on:change="getSelectedItem" size="me" class="mr-1 rounded">
-          <option v-for="template in templates" v-bind:key="template.id">
-            {{ template.name }}
-            {{ template.id }}
-          </option>
-        </select>
-      </template>
-
       <template #cell(templates)>
         <b-form-select v-on:change.native="getSelectedItem"
         size="me" class="mr-1 rounded">
 
         <b-form-select-option v-for="template in templates" v-bind:key="template.id"
         v-bind:value="template.name">
-          {{ template.id }}
           {{ template.name }}
         </b-form-select-option>
 
@@ -66,7 +56,8 @@ export default {
         { key: 'actions', label: 'Actions' }],
       items: [],
       templates: [],
-      newTemplateQuestions: []
+      newTemplateQuestions: [],
+      componentKey: false
     };
   },
   created() {
@@ -76,11 +67,7 @@ export default {
     axios.get('/templates.json').then(response => (this.templates = response.data));
   },
   computed: {
-    sortKey: {
-      get() {
-        return this.sorting.split(' ')[0];
-      }
-    }
+
   },
   methods: {
     dataChanged(e) {
@@ -124,9 +111,6 @@ export default {
           template_id: currTempId
         });
       }
-
-      console.log(this.newTemplateQuestions)
-      // console.log('TEMPLATE NAME:', tempName, 'TEMPLATE ID:', tempId, 'QUESTION:', currQuestion.title)
     },
     addQuestion(e) {
       let row = e.target.closest('tr')
@@ -146,15 +130,9 @@ export default {
     deleteQuestion(e) {
       let row = e.target.closest('tr')
       let question = this.items[row.rowIndex - 1]
-      axios.delete('/questions/' + question.id);
 
-      axios.delete('/questions/' + question.id)
-      .then(response => {
-        const index = this.questions.findIndex(question => question.id === id)
-        if (~index)
-          this.questions.splice(index, 1) // Delete the question, where it currently exists in props
-        }
-      );
+      axios.delete('/questions/' + question.id);
+      location.reload();
     }
   }
 }

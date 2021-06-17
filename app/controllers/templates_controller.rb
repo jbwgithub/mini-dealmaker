@@ -16,7 +16,7 @@ class TemplatesController < ApplicationController
   def create
     @template = Template.new(template_params)
     if @template.save
-      flash[:notice] = "Question was saved successfully."
+      flash[:notice] = "Template was saved successfully."
       redirect_to templates_path
     else
       render 'new'
