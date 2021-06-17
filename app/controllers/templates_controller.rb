@@ -6,7 +6,19 @@ class TemplatesController < ApplicationController
   end
 
   def show
-
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Template No. #{@template.id}",
+          page_size: 'A4',
+          template: "templates/_document.html.erb",
+          layout: "pdf.html",
+          orientation: "Portrait",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+  end
   end
 
   def new

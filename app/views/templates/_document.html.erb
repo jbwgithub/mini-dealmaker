@@ -1,0 +1,92 @@
+<div class="container mt-4 mb-4">
+  <div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+      <tr class="top">
+        <td colspan="4">
+          <table>
+            <tr>
+              <td class="title">
+                <%= image_tag('dealmaker-logo.png', width: "50%", height: "auto")%>
+              </td>
+
+              <td>
+                Template No. #: <b><%= @template.id %></b>
+                <br>
+                Created: <b><%= @template.created_at.strftime('%d/%m/%Y') %></b>
+                <br>
+                Last Updated: <b><%= (@template.updated_at).strftime('%d/%m/%Y') %></b>
+                <br>
+                Status: <span class="badge rounded-pill bg-primary me-1 text-decoration-none">Open</span>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr class="information">
+        <td colspan="4">
+          <table>
+            <tr>
+              <td>
+                <b><%= @template.name %></b><br>
+                Placeholder for company address<br>
+                <i class="bi bi-envelope-fill"></i> Company Email placeholder<br>
+                <i class="bi bi-telephone-fill"></i> Company Phone placeholder
+              </td>
+
+              <td>
+                <b>Potential Investor Name</b><br>
+                Placeholder for investor address<br>
+                <i class="bi bi-envelope-fill"></i> Investor Email placeholder<br>
+                <i class="bi bi-telephone-fill"></i> Investor Phone placeholder
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <% if @template.questions.count > 0 %>
+
+        <tr class="heading">
+          <td>Question</td>
+          <td class="left">Answer</td>
+          <td colspan="2"></td>
+
+        </tr>
+
+        <% @template.questions.each do |question| %>
+          <tr class="item">
+            <td>
+              <%= question.ask %><br>
+            </td>
+
+            <td class="right">
+              <%= question.answer %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+
+        <tr class="heading">
+          <td><i>This is currently a blank template</i></td>
+          <td colspan="6"></td>
+        </tr>
+
+        <tr class="item">
+          <td>
+            <p style="color:grey"><i>Questions and answers will appear here as you assign them to this template. To create questions and assign them to templates, go to the Questions tab dropdown in the navigation bar.</i></p>
+          </td>
+        </tr>
+      <% end %>
+
+      <tr>
+        <td colspan="4"></td>
+      </tr>
+
+      <tr class="heading">
+        <td colspan="2"></td>
+        <td><b>Dealmaker &copy; 2021</b></td>
+      </tr>
+    </table>
+  </div>
+</div>
