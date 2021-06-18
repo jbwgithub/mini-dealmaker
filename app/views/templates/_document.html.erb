@@ -6,7 +6,7 @@
           <table>
             <tr>
               <td class="title">
-                <%= image_tag('dealmaker-logo.png', width: "50%", height: "auto")%>
+                <%= image_tag wicked_pdf_asset_base64('dealmaker-logo.png'), width: "70%", height: "auto"%>
               </td>
 
               <td>
@@ -29,14 +29,14 @@
             <tr>
               <td>
                 <b><%= @template.name %></b><br>
-                Placeholder for company address<br>
+                <i class="bi bi-building"></i> Placeholder for company address<br>
                 <i class="bi bi-envelope-fill"></i> Company Email placeholder<br>
                 <i class="bi bi-telephone-fill"></i> Company Phone placeholder
               </td>
 
               <td>
                 <b>Potential Investor Name</b><br>
-                Placeholder for investor address<br>
+                <i class="bi bi-building"></i> Placeholder for investor address<br>
                 <i class="bi bi-envelope-fill"></i> Investor Email placeholder<br>
                 <i class="bi bi-telephone-fill"></i> Investor Phone placeholder
               </td>
@@ -49,7 +49,7 @@
 
         <tr class="heading">
           <td>Question</td>
-          <td class="left">Answer</td>
+          <td class="">Answer</td>
           <td colspan="2"></td>
 
         </tr>
@@ -69,7 +69,6 @@
 
         <tr class="heading">
           <td><i>This is currently a blank template</i></td>
-          <td colspan="6"></td>
         </tr>
 
         <tr class="item">
@@ -80,12 +79,11 @@
       <% end %>
 
       <tr>
-        <td colspan="4"></td>
+        <td colspan="2"></td>
       </tr>
 
       <tr class="heading">
-        <td colspan="2"></td>
-        <td><b>Dealmaker &copy; 2021</b></td>
+        <td class="text-center"><b>Dealmaker &copy; 2021</b></td>
       </tr>
     </table>
   </div>
