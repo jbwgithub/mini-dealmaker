@@ -3,6 +3,7 @@
 Welcome to the Mini-Dealmaker app!
 
 * To visit the live production site, please click here: [Mini-Dealmaker](https://mini-dealmaker.herokuapp.com)
+  * This site may be temporarily unavailable for maintenance
 
 * This application was built with the following technologies:
   * Ruby on Rails (RoR v6)
@@ -10,4 +11,3 @@ Welcome to the Mini-Dealmaker app!
   * Bootstrap
   * Bootstrap Vue
   * Deployed with [Heroku](https://www.heroku.com/)
-
